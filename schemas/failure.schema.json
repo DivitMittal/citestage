@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CiteStage Failure",
+  "type": "object",
+  "required": ["primary_failure", "stage", "evidence", "repair_plan"],
+  "properties": {
+    "primary_failure": {
+      "enum": [
+        "CrawlFailure",
+        "ParseFailure",
+        "IndexFailure",
+        "RetrievalFailure",
+        "RerankFailure",
+        "SynthesisFailure",
+        "CitationFailure",
+        "FactualityFailure"
+      ]
+    },
+    "stage": { "type": "string" },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "repair_plan": {
+      "type": "object",
+      "required": ["title", "steps"],
+      "properties": {
+        "title": { "type": "string" },
+        "steps": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
