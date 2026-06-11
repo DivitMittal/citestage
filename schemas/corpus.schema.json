@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CiteStage Corpus",
+  "type": "object",
+  "required": ["target_id", "documents"],
+  "properties": {
+    "target_id": { "type": "string" },
+    "documents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/document" }
+    }
+  },
+  "$defs": {
+    "document": {
+      "type": "object",
+      "required": ["id", "title", "path", "source_kind", "content"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "path": { "type": "string" },
+        "source_kind": { "enum": ["Target", "Competitor", "Distractor"] },
+        "content": { "type": "string" }
+      }
+    }
+  }
+}
