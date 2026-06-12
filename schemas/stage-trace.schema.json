@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CiteStage StageTrace",
+  "type": "object",
+  "required": ["query", "target", "stages", "cited_sources"],
+  "properties": {
+    "query": {
+      "type": "object",
+      "required": ["text", "target_id"],
+      "properties": {
+        "text": { "type": "string" },
+        "target_id": { "type": "string" }
+      }
+    },
+    "target": { "type": "string" },
+    "stages": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/stageResult" }
+    },
+    "cited_sources": { "type": "array", "items": { "type": "string" } },
+    "diagnosis": { "type": ["object", "null"] }
+  },
+  "$defs": {
+    "stageResult": {
+      "type": "object",
+      "required": ["stage", "status", "target_present", "target_rank", "evidence"],
+      "properties": {
+        "stage": { "type": "string" },
+        "status": { "enum": ["Pass", "Partial", "Fail"] },
+        "target_present": { "type": "boolean" },
+        "target_rank": { "type": ["integer", "null"], "minimum": 1 },
+        "evidence": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
