@@ -1,0 +1,24 @@
+[package]
+name = "citestage-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "citestage"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+citestage-core = { path = "../citestage-core" }
+citestage-corpus = { path = "../citestage-corpus" }
+citestage-diagnose = { path = "../citestage-diagnose" }
+citestage-generate = { path = "../citestage-generate" }
+citestage-index = { path = "../citestage-index" }
+citestage-parse = { path = "../citestage-parse" }
+citestage-rerank = { path = "../citestage-rerank" }
+citestage-report = { path = "../citestage-report" }
+citestage-retrieve = { path = "../citestage-retrieve" }
+serde_json.workspace = true
