@@ -1,0 +1,94 @@
+{
+  "query": {
+    "text": "best NixOS home manager flake template for reproducible machines",
+    "target_id": "os-nixcfg"
+  },
+  "target": "os-nixcfg",
+  "stages": [
+    {
+      "stage": "crawl",
+      "status": "Pass",
+      "target_present": true,
+      "target_rank": null,
+      "evidence": [
+        "loaded 5 documents"
+      ]
+    },
+    {
+      "stage": "parse",
+      "status": "Partial",
+      "target_present": true,
+      "target_rank": 1,
+      "evidence": [
+        "parsed 4 sections; clarity score 0.40",
+        "no one-sentence definition detected near the top"
+      ]
+    },
+    {
+      "stage": "index",
+      "status": "Pass",
+      "target_present": true,
+      "target_rank": 1,
+      "evidence": [
+        "target produced 4 indexable chunks"
+      ]
+    },
+    {
+      "stage": "retrieve",
+      "status": "Pass",
+      "target_present": true,
+      "target_rank": 2,
+      "evidence": [
+        "target chunk retrieved at rank 2"
+      ]
+    },
+    {
+      "stage": "rerank",
+      "status": "Pass",
+      "target_present": true,
+      "target_rank": 2,
+      "evidence": [
+        "target moved from retrieval rank 2 to rerank rank 2"
+      ]
+    },
+    {
+      "stage": "synthesize",
+      "status": "Pass",
+      "target_present": true,
+      "target_rank": null,
+      "evidence": [
+        "deterministic extractive answer produced"
+      ]
+    },
+    {
+      "stage": "cite",
+      "status": "Pass",
+      "target_present": true,
+      "target_rank": 2,
+      "evidence": [
+        "target cited at citation position 2"
+      ]
+    }
+  ],
+  "cited_sources": [
+    "nix-starter-configs",
+    "os-nixcfg",
+    "home-manager"
+  ],
+  "diagnosis": {
+    "primary_failure": "ParseFailure",
+    "stage": "parse",
+    "evidence": [
+      "parsed 4 sections; clarity score 0.40",
+      "no one-sentence definition detected near the top"
+    ],
+    "repair_plan": {
+      "title": "Make the README parse cleanly",
+      "steps": [
+        "Add a one-sentence definition near the top",
+        "Use descriptive Markdown headings instead of dense prose blocks",
+        "Move quickstart and use-cases before low-level topology details"
+      ]
+    }
+  }
+}
