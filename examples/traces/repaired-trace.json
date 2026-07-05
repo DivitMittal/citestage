@@ -1,0 +1,90 @@
+{
+  "query": {
+    "text": "best NixOS home manager flake template for reproducible machines",
+    "target_id": "os-nixcfg"
+  },
+  "target": "os-nixcfg",
+  "stages": [
+    {
+      "stage": "crawl",
+      "status": "Pass",
+      "target_present": true,
+      "target_rank": null,
+      "evidence": [
+        "loaded 5 documents"
+      ]
+    },
+    {
+      "stage": "parse",
+      "status": "Pass",
+      "target_present": true,
+      "target_rank": 1,
+      "evidence": [
+        "parsed 5 sections; clarity score 1.00"
+      ]
+    },
+    {
+      "stage": "index",
+      "status": "Pass",
+      "target_present": true,
+      "target_rank": 1,
+      "evidence": [
+        "target produced 5 indexable chunks"
+      ]
+    },
+    {
+      "stage": "retrieve",
+      "status": "Pass",
+      "target_present": true,
+      "target_rank": 1,
+      "evidence": [
+        "target chunk retrieved at rank 1"
+      ]
+    },
+    {
+      "stage": "rerank",
+      "status": "Pass",
+      "target_present": true,
+      "target_rank": 1,
+      "evidence": [
+        "target moved from retrieval rank 1 to rerank rank 1"
+      ]
+    },
+    {
+      "stage": "synthesize",
+      "status": "Pass",
+      "target_present": true,
+      "target_rank": null,
+      "evidence": [
+        "deterministic extractive answer produced"
+      ]
+    },
+    {
+      "stage": "cite",
+      "status": "Pass",
+      "target_present": true,
+      "target_rank": 1,
+      "evidence": [
+        "target cited at citation position 1"
+      ]
+    }
+  ],
+  "cited_sources": [
+    "os-nixcfg",
+    "nix-starter-configs"
+  ],
+  "diagnosis": {
+    "primary_failure": "FactualityFailure",
+    "stage": "none",
+    "evidence": [
+      "all modeled stages passed; validate answer factuality manually"
+    ],
+    "repair_plan": {
+      "title": "Validate factuality outside the citation simulator",
+      "steps": [
+        "Run human review against the source documents",
+        "Add claim-level checks before publishing generated answers"
+      ]
+    }
+  }
+}
