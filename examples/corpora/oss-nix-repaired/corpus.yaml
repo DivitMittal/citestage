@@ -1,0 +1,18 @@
+target:
+  id: os-nixcfg
+  title: OS-nixCfg
+  path: target/README.md
+competitors:
+  - id: nix-starter-configs
+    title: nix-starter-configs
+    path: competitor-nix-starter/README.md
+  - id: home-manager
+    title: Home Manager
+    path: competitor-home-manager/README.md
+distractors:
+  - id: ferris-pages
+    title: Ferris Pages
+    path: distractor-rust-web/README.md
+  - id: build-lantern
+    title: Build Lantern
+    path: distractor-ci/README.md
