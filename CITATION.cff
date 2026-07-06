@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use CiteStage, please cite the software and the accompanying paper."
+title: "CiteStage: Stage-Level Citation Failure Diagnosis for Generative Answer Engines"
+type: software
+authors:
+  - family-names: Mittal
+    given-names: Divit
+    email: divit.229309249@muj.manipal.edu
+    affiliation: "Department of Data Science and Engineering, Manipal University Jaipur"
+version: 0.1.0
+date-released: 2026-07-06
+license: MIT
+repository-code: "https://github.com/DivitMittal/citestage"
+abstract: "CiteStage is a deterministic, stage-level debugger for tracing citation failures through crawl, parse, index, retrieve, rerank, synthesize, and cite stages."
+keywords:
+  - citation analysis
+  - citation failure diagnosis
+  - generative answer engines
+  - retrieval augmented generation
+  - reproducible evaluation
+preferred-citation:
+  type: conference-paper
+  title: "Visibility Regression Testing and Citation Failure Diagnosis for Open-Source Projects in Generative Answer Engines"
+  authors:
+    - family-names: Mittal
+      given-names: Divit
+      email: divit.229309249@muj.manipal.edu
+      affiliation: "Department of Data Science and Engineering, Manipal University Jaipur"
+  year: 2026
