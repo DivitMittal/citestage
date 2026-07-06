@@ -1,5 +1,7 @@
 # CiteStage
 
+[![CI](https://github.com/DivitMittal/citestage/actions/workflows/ci.yml/badge.svg)](https://github.com/DivitMittal/citestage/actions/workflows/ci.yml) [![Nix flake check](https://github.com/DivitMittal/citestage/actions/workflows/flake-check.yml/badge.svg)](https://github.com/DivitMittal/citestage/actions/workflows/flake-check.yml) ![License](https://img.shields.io/badge/license-MIT-blue) ![Status](https://img.shields.io/badge/status-MVP-green)
+
 A stage-level debugger for citation failures in generative answer engines.
 
 CiteStage models an answer-engine pipeline as crawl → parse → index → retrieve → rerank → synthesize → cite. It runs locally over a controlled corpus of target docs, competitor docs, and distractors, then diagnoses which stage caused the target project to not be cited.
