@@ -6,7 +6,7 @@ use std::path::PathBuf;
 
 #[derive(Parser)]
 #[command(name = "citestage")]
-#[command(about = "A stage-level debugger for citation failures in generative answer engines.")]
+#[command(about = "Diagnose citation failures in a deterministic local answer-engine pipeline.")]
 struct Cli {
     #[command(subcommand)]
     command: Commands,
@@ -14,56 +14,99 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
+    #[command(about = "Create a starter corpus manifest for a target README.")]
     Init {
-        #[arg(long)]
+        #[arg(long, help = "Path to the target project's README or source document")]
         target: PathBuf,
-        #[arg(long, default_value = "corpus.yaml")]
+        #[arg(
+            long,
+            default_value = "corpus.yaml",
+            help = "Path for the generated corpus manifest"
+        )]
         output: PathBuf,
     },
+    #[command(about = "Build corpus artifacts from local fixture documents.")]
     Corpus {
         #[command(subcommand)]
         command: CorpusCommands,
     },
+    #[command(about = "Run the deterministic pipeline and write a JSON stage trace.")]
     Run {
-        #[arg(long)]
+        #[arg(long, help = "Query to evaluate against the controlled corpus")]
         query: String,
-        #[arg(long, default_value = "corpus.yaml")]
+        #[arg(
+            long,
+            default_value = "corpus.yaml",
+            help = "Path to the corpus manifest"
+        )]
         corpus: PathBuf,
-        #[arg(long, default_value = "stage-trace.json")]
+        #[arg(
+            long,
+            default_value = "stage-trace.json",
+            help = "Path for the generated JSON stage trace"
+        )]
         output: PathBuf,
     },
+    #[command(about = "Run the pipeline and write an evidence-backed Markdown diagnosis.")]
     Explain {
-        #[arg(long)]
+        #[arg(long, help = "Query to evaluate against the controlled corpus")]
         query: String,
-        #[arg(long)]
+        #[arg(long, help = "Override the corpus target id for this diagnosis")]
         target: Option<String>,
-        #[arg(long, default_value = "corpus.yaml")]
+        #[arg(
+            long,
+            default_value = "corpus.yaml",
+            help = "Path to the corpus manifest"
+        )]
         corpus: PathBuf,
-        #[arg(long, default_value = "diagnosis.md")]
+        #[arg(
+            long,
+            default_value = "diagnosis.md",
+            help = "Path for the generated Markdown diagnosis report"
+        )]
         output: PathBuf,
     },
+    #[command(about = "Print the repair plan from a previously generated stage trace.")]
     PatchPlan {
-        #[arg(long, default_value = "stage-trace.json")]
+        #[arg(
+            long,
+            default_value = "stage-trace.json",
+            help = "Path to a JSON stage trace with diagnosis data"
+        )]
         trace: PathBuf,
     },
+    #[command(about = "Compare two diagnosis traces at the primary-failure summary level.")]
     Compare {
-        #[arg(long)]
+        #[arg(long, help = "Path to the baseline JSON stage trace")]
         before: PathBuf,
-        #[arg(long)]
+        #[arg(long, help = "Path to the follow-up JSON stage trace")]
         after: PathBuf,
     },
 }
 
 #[derive(Subcommand)]
 enum CorpusCommands {
+    #[command(
+        about = "Ingest local target, competitor, and distractor documents into corpus JSON."
+    )]
     Build {
-        #[arg(long)]
+        #[arg(long, help = "Path to the target project's README or source document")]
         target: PathBuf,
-        #[arg(long = "competitor")]
+        #[arg(
+            long = "competitor",
+            help = "Path to a competitor document; repeat for multiple competitors"
+        )]
         competitors: Vec<PathBuf>,
-        #[arg(long = "distractor")]
+        #[arg(
+            long = "distractor",
+            help = "Path to a distractor document; repeat for multiple distractors"
+        )]
         distractors: Vec<PathBuf>,
-        #[arg(long, default_value = "corpus.json")]
+        #[arg(
+            long,
+            default_value = "corpus.json",
+            help = "Path for the generated corpus JSON"
+        )]
         output: PathBuf,
     },
 }
