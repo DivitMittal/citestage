@@ -17,3 +17,6 @@ result-*
 
 ## Microsoft APM (Agent Package Manager)
 apm_modules/
+
+## git worktrees kept inside the project directory
+.worktrees/
